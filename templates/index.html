@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+   <div class="header">
+   Welcome To News App
+<p style="text-align:center;position:absolute;top:5px;left:250px;">Developed By Anand Prakash</p>
+   </div>
+    <div class="container">
+        <h1>Latest News</h1>
+        <form method="POST" action="/">
+            <input type="text" name="query" value="{{ query }}" placeholder="Search for news...">
+            <button type="submit">Search</button>
+        </form>
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                    <!--<p>Object Address: {{ article.address }}</p>-->
+                    <a href="{{ article.link }}" target="_blank">Read more</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <footer>
+	<h2 style="background-color:yellow">Developed By Ap Dhangar </h2>
+        <p>&copy; 2024 News App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
